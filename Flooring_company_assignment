@@ -1,0 +1,65 @@
+import random
+
+#part a)
+#square ft range 500-2000
+square_ft=0
+workers=0
+while True:
+    square_ft=int(input("enter value in the range of 500 and 2000 sqft."))
+
+    if(square_ft<500 or square_ft>2000):
+        print("invalid input, please try again.")
+    else:
+        print("valid input.")
+        break
+
+#part b)
+#worker range 1-6
+
+while True:
+    workers=int(input("enter value in the range of 1 and 6 workers."))
+
+    if(workers<1 or workers>6):
+        print("invalid input, please try again.")
+    else:
+        print("valid input.")
+        break
+
+#part c)
+normal_rate_per_worker=50
+total_rate=normal_rate_per_worker*workers
+hour=0
+print(f"number of workers {workers}")
+print(f"total area {square_ft}")
+print(f"total rate {total_rate}")
+
+##while square_ft>0:
+##    hour=hour+1
+##    print(f"number of hours: {hour}")
+##    square_ft=square_ft-total_rate
+##    print(f"there are {square_ft} sqft of flooring to install still. {hour} hours have elapsed.")
+##
+##print(f"it took {hour} hours to install the floor with {workers} workers.")
+
+
+#part d)
+
+boosted_rate_per_worker=100
+hour=0
+while square_ft>0:
+    hour+=1
+    if random.randrange(1,4)==1:
+        print(f"workers are empowered to install {boosted_rate_per_worker} sqft of flooring.")
+        total_rate=boosted_rate_per_worker*workers
+
+    else:
+        total_rate=normal_rate_per_worker*workers
+        print(f"workers are working at normal rate {total_rate}.")
+
+    print(f"total rate is {total_rate}")
+        
+    square_ft=square_ft-total_rate
+    print(f"there are {square_ft} sqft of flooring to install still. {hour} hours have elapsed.")
+
+print(f"it took {hour} hours to install the floor with {workers} workers.")
+
